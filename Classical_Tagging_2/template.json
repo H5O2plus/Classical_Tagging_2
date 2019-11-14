@@ -1,0 +1,32 @@
+{
+  "works": [
+    {
+      "title": "WORK TITLE",
+      "key": "WORK KEY, including MODE"
+      "composer": "COMPOSER LAST NAME",
+      "workIds": [
+        {
+          "abbr": "WORK_ID TYPE ABBR",
+          "num": "WORK_ID NUM"
+        }
+      ],
+      "hasSubsections": true,
+      "sectionType": "SECTION TYPE ABBR",
+      "sections": [
+        {
+          "num": "SECTION NUM",
+          "name": "NAME OF SECTION",
+          "hasSubsections": true,
+          "sections": [
+            {
+              "num": "SECTION NUM",
+              "name": "NAME OF SECTION"
+            }
+          ]
+        }
+      ],
+
+      "genre": "GENRE",
+    }
+  ]
+}

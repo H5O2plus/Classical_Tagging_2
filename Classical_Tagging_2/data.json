@@ -1,0 +1,62 @@
+﻿{
+  "description": "classical music metadata",
+  "workIdTypes": [
+    {
+      "name": "Opus",
+      "abbr": "Op."
+    },
+    {
+      "name": "András Szőllősy",
+      "abbr": "Sz."
+    },
+    {
+      "name": "László Somfai",
+      "abbr": "BB"
+    },
+    {
+      "name": "Denijs Dille",
+      "abbr": "DD"
+    }
+  ],
+  "name_last": {
+    "Bartók": {
+      "name_prefix": "Béla",
+      "works": [
+        {
+          "title": "The Miraculous Mandarin",
+
+          "Op.": "19",
+          "Sz.": "73",
+          "BB": "82",
+
+          "genre": "Classical",
+
+          "sectionType": "Section",
+          "sectionAbbr": "Sec.",
+
+          "yr": "1996",
+          "mo": "01",
+          "dt": "02"
+        }
+      ]
+    },
+    "Beethoven": {
+      "name_prefix": "Ludwig van"
+    },
+    "Copland": {
+      "name_prefix": "Aaron"
+    },
+    "Debussy": {
+      "name_prefix": "Claude"
+    },
+    "Mendelssohn": {
+      "name_prefix": "Felix"
+    },
+    "Ravel": {
+      "name_prefix": "Maurice"
+    },
+    "Saint-Saëns": {
+      "name_prefix": "Camille"
+    }
+  }
+}

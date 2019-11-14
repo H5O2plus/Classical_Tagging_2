@@ -1,0 +1,75 @@
+﻿{
+  "workIdTypes": [
+    {
+      "name": "Opus",
+      "abbr": "Op."
+    },
+    {
+      "name": "András Szőllősy",
+      "abbr": "Sz."
+    },
+    {
+      "name": "László Somfai",
+      "abbr": "BB"
+    },
+    {
+      "name": "Denijs Dille",
+      "abbr": "DD"
+    }
+  ],
+  "composers": [
+    {
+      "name_last": "Bartók",
+      "name_prefix": "Béla",
+      "works": [
+        {
+          "title": "The Miraculous Mandarin",
+          "workIdType": "Sz.",
+          "workIdNum": "73",
+          "sectionType": "Section",
+          "sectionAbbr": "Sec.",
+          "sections": [
+            {
+              "num": "1",
+              "name": "Beginning—Curtain rises"
+            },
+            {
+              "num": "2",
+
+            }
+          ],
+
+          "genre": "Classical",
+
+          "yr": "1996",
+          "mo": "01",
+          "dt": "02"
+        }
+      ]
+    },
+    {
+      "name_last": "Beethoven",
+      "name_prefix": "Ludwig van"
+    },
+    {
+      "name_last": "Copland",
+      "name_prefix": "Aaron"
+    },
+    {
+      "name_last": "Debussy",
+      "name_prefix": "Claude"
+    },
+    {
+      "name_last": "Mendelssohn",
+      "name_prefix": "Felix"
+    },
+    {
+      "name_last": "Ravel",
+      "name_prefix": "Maurice"
+    },
+    {
+      "name_last": "Saint-Saëns",
+      "name_prefix": "Camille"
+    }
+  ]
+}

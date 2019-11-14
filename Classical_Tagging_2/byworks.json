@@ -1,0 +1,162 @@
+{
+
+  "composers": [
+    {
+      "name_last": "Bartók",
+      "name_prefix": "Béla"
+    },
+    {
+      "name_last": "Beethoven",
+      "name_prefix": "Ludwig van"
+    },
+    {
+      "name_last": "Copland",
+      "name_prefix": "Aaron"
+    },
+    {
+      "name_last": "Debussy",
+      "name_prefix": "Claude"
+    },
+    {
+      "name_last": "Mendelssohn",
+      "name_prefix": "Felix"
+    },
+    {
+      "name_last": "Ravel",
+      "name_prefix": "Maurice"
+    },
+    {
+      "name_last": "Saint-Saëns",
+      "name_prefix": "Camille"
+    }
+  ],
+  "workIdTypes": [
+    {
+      "name": "Opus",
+      "abbr": "Op."
+    },
+    {
+      "name": "András Szőllősy",
+      "abbr": "Sz."
+    },
+    {
+      "name": "László Somfai",
+      "abbr": "BB"
+    },
+    {
+      "name": "Denijs Dille",
+      "abbr": "DD"
+    }
+  ],
+  "sectionTypes": [
+    {
+      "name": "Section",
+      "abbr": "Sec."
+    },
+    {
+      "name": "Movement",
+      "abbr": "Mvt."
+    },
+    {
+      "name": "Part",
+      "abbr": "Pt."
+    },
+    {
+      "name": "Episode",
+      "abbr": "Ep."
+    },
+    {
+      "name": "",
+      "abbr": ""
+    }
+  ],
+  "works": [
+    {
+      "title": "The Miraculous Mandarin",
+      "composer": "Bartók",
+      "workIds": [
+        {
+          "abbr": "Sz.",
+          "num": 73
+        },
+        {
+          "abbr": "Op.",
+          "num": 19
+        },
+        {
+          "abbr": "BB",
+          "num": 82
+        }
+      ],
+      "hasSubsections": true,
+      "sectionType": "Sec.",
+      "sections": [
+        {
+          "num": 1,
+          "name": "Beginning—Curtain rises"
+        },
+        {
+          "num": 2,
+          "name": "First seduction game"
+        },
+        {
+          "num": 3,
+          "name": "Second seduction game"
+        },
+        {
+          "num": 4,
+          "name": "Third seduction game—the Mandarin enters"
+        },
+        {
+          "num": 5,
+          "name": "Dance of the girl"
+        },
+        {
+          "num": 6,
+          "name": "The chase—the tramps leap out"
+        },
+        {
+          "num": 7,
+          "name": "Suddenly the Mandarin's head appears"
+        },
+        {
+          "num": 8,
+          "name": "The Mandarin falls to the floor"
+        }
+      ],
+
+      "genre": "Classical"
+    },
+    {
+      "title": "Symphony No. 7",
+      "composer": "Beethoven",
+      "workIds": [
+        {
+          "abbr": "Op.",
+          "num": 92
+        }
+      ],
+      "hasSubsections": true,
+      "sectionType": "Mvt.",
+      "sections": [
+        {
+          "num": 1,
+          "name": "Poco sostenuto - Vivace"
+        },
+        {
+          "num": 2,
+          "name": "Allegretto"
+        },
+        {
+          "num": 3,
+          "name": "Presto"
+        },
+        {
+          "num": 4,
+          "name": "Allegro con brio"
+        }
+      ],
+      "genre": "Classical"
+    }
+  ]
+}
