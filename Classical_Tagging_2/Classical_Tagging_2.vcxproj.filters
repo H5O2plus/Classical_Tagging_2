@@ -32,5 +32,13 @@
     <None Include="byworks.json">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="test.json">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

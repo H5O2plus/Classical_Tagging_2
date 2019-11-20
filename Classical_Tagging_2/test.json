@@ -1,0 +1,160 @@
+{
+    "composers": [
+        {
+            "name_last": "Bartók",
+            "name_prefix": "Béla"
+        },
+        {
+            "name_last": "Beethoven",
+            "name_prefix": "Ludwig van"
+        },
+        {
+            "name_last": "Copland",
+            "name_prefix": "Aaron"
+        },
+        {
+            "name_last": "Debussy",
+            "name_prefix": "Claude"
+        },
+        {
+            "name_last": "Mendelssohn",
+            "name_prefix": "Felix"
+        },
+        {
+            "name_last": "Ravel",
+            "name_prefix": "Maurice"
+        },
+        {
+            "name_last": "Saint-Saëns",
+            "name_prefix": "Camille"
+        }
+    ],
+    "sectionTypes": [
+        {
+            "abbr": "Sec.",
+            "name": "Section"
+        },
+        {
+            "abbr": "Mvt.",
+            "name": "Movement"
+        },
+        {
+            "abbr": "Pt.",
+            "name": "Part"
+        },
+        {
+            "abbr": "Ep.",
+            "name": "Episode"
+        },
+        {
+            "abbr": "",
+            "name": ""
+        }
+    ],
+    "workIdTypes": [
+        {
+            "abbr": "Op.",
+            "name": "Opus"
+        },
+        {
+            "abbr": "Sz.",
+            "name": "András Szőllősy"
+        },
+        {
+            "abbr": "BB",
+            "name": "László Somfai"
+        },
+        {
+            "abbr": "DD",
+            "name": "Denijs Dille"
+        }
+    ],
+    "works": [
+        {
+            "composer": "Bartók",
+            "genre": "Classical",
+            "hasSubsections": true,
+            "sectionType": "Sec.",
+            "sections": [
+                {
+                    "name": "Beginning—Curtain rises",
+                    "num": 1
+                },
+                {
+                    "name": "First seduction game",
+                    "num": 2
+                },
+                {
+                    "name": "Second seduction game",
+                    "num": 3
+                },
+                {
+                    "name": "Third seduction game—the Mandarin enters",
+                    "num": 4
+                },
+                {
+                    "name": "Dance of the girl",
+                    "num": 5
+                },
+                {
+                    "name": "The chase—the tramps leap out",
+                    "num": 6
+                },
+                {
+                    "name": "Suddenly the Mandarin's head appears",
+                    "num": 7
+                },
+                {
+                    "name": "The Mandarin falls to the floor",
+                    "num": 8
+                }
+            ],
+            "title": "The Miraculous Mandarin",
+            "workIds": [
+                {
+                    "abbr": "Sz.",
+                    "num": 73
+                },
+                {
+                    "abbr": "Op.",
+                    "num": 19
+                },
+                {
+                    "abbr": "BB",
+                    "num": 82
+                }
+            ]
+        },
+        {
+            "composer": "Beethoven",
+            "genre": "Classical",
+            "hasSubsections": true,
+            "sectionType": "Mvt.",
+            "sections": [
+                {
+                    "name": "Poco sostenuto - Vivace",
+                    "num": 1
+                },
+                {
+                    "name": "Allegretto",
+                    "num": 2
+                },
+                {
+                    "name": "Presto",
+                    "num": 3
+                },
+                {
+                    "name": "Allegro con brio",
+                    "num": 4
+                }
+            ],
+            "title": "Symphony No. 7",
+            "workIds": [
+                {
+                    "abbr": "Op.",
+                    "num": 92
+                }
+            ]
+        }
+    ]
+}
