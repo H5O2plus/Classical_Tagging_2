@@ -10,19 +10,10 @@
 #include <filesystem>
 #include <stdexcept>
 
-#include <taglib/tag.h>
-#include <taglib/fileref.h>
-#include <taglib/tpropertymap.h>
-#include <taglib/tstring.h>
-#include <taglib/tstringlist.h>
+#include <FLAC++/all.h>
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
-
-std::ostream& operator<<(std::ostream& os, TagLib::PropertyMap prop) {
-	os << prop.toString();
-	return os;
-}
 
 std::ostream& operator<<(std::ostream& os, json::value_t type) {
 	os << "json::value_t::";
@@ -110,15 +101,7 @@ int main(int argc, char** argv) {
 
 	} while (cmd != "exit");
 
-	for (auto file : files) {
-		TagLib::FileRef musicin(file.c_str());
-		std::cout << "original tags: " << musicin.tag()->properties() << std::endl;
-		TagLib::PropertyMap myprop;
-		std::cout << "assign myprop: " << myprop.insert("SUBTITLE", TagLib::StringList("testva")) << std::endl;
-		std::cout << "unassigned parts of myprop: " << musicin.tag()->setProperties(myprop) << std::endl;
-		std::cout << "current tags: " << musicin.tag()->properties() << std::endl;
-		std::cout << "file save: " << musicin.save() << std::endl;
-	}
+
 
 	//Last names of composers, constructed by iterating works
 	std::vector<std::string> composers;
