@@ -67,10 +67,13 @@ std::vector<std::string> strToVec(std::string str) {
 int main(int argc, char** argv) {
 	std::cout << "See README.md for more info." << std::endl;
 	std::string version = "0.1";
+	std::cout << "CTag v." << version << std::endl;
 
+	//DB of musical works
 	std::ifstream fin("byworks.json");
 	json jin;
 
+	//Read DB and parse into json
 	try {
 		jin = json::parse(fin);
 	}
@@ -79,10 +82,9 @@ int main(int argc, char** argv) {
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "CTag v." << version << std::endl;
-
 	std::string cmd;
 	std::vector<std::string> files;
+	//Path to all flacs
 	std::string path = "./music/";
 	do {
 		std::cout << "> ";
@@ -109,6 +111,21 @@ int main(int argc, char** argv) {
 		
 
 	} while (cmd != "exit");
+
+	TagLib::List<TagLib::FileRef> fileList;
+	for (auto filepath : files) {
+		TagLib::FileRef f(filepath.c_str());
+		if (!f.isNull() && f.tag()) {
+			fileList.append(f);
+		}
+		else {
+			std::cout << "File ignored: " << filepath << std::endl;
+		}
+	}
+	TagLib::List<TagLib::FileRef>::ConstIterator it;
+	for (it = fileList.begin(); it != fileList.end(); it++) {
+		TagLib::PropertyMap map = (*it).file()->properties();
+	}
 
 	for (auto file : files) {
 		TagLib::FileRef musicin(file.c_str());
