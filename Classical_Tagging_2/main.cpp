@@ -58,6 +58,10 @@ std::vector<std::string> strToVec(std::string str) {
 int main(int argc, char** argv) {
 	std::cout << "See README.md for more info." << std::endl;
 	std::string version = "0.1";
+	std::string cmd;
+	std::vector<std::string> files;
+	std::string path = "./music/";
+
 
 	std::ifstream fin("byworks.json");
 	json jin;
@@ -72,9 +76,7 @@ int main(int argc, char** argv) {
 
 	std::cout << "CTag v." << version << std::endl;
 
-	std::string cmd;
-	std::vector<std::string> files;
-	std::string path = "./music/";
+
 	do {
 		std::cout << "> ";
 		std::getline(std::cin, cmd);
