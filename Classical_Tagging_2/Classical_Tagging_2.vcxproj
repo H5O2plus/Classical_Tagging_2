@@ -132,9 +132,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="tagwriter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="backup.json" />
     <None Include="byworks.json" />
     <None Include="data.json" />
     <None Include="template.json" />

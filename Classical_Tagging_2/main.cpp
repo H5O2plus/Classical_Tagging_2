@@ -16,6 +16,7 @@
 #include <taglib/tstring.h>
 #include <taglib/tstringlist.h>
 #include <nlohmann/json.hpp>
+#include <picosha2.h>
 
 using json = nlohmann::json;
 
@@ -82,36 +83,31 @@ int main(int argc, char** argv) {
 		std::cerr << e.what() << std::endl;
 	}
 
+	//Backup tags
+	json tags_backup;
+	//Parse backup if exists
+	if (std::filesystem::exists("backup.json")) {
+		try {
+			std::ifstream fin_backup("backup.json");
+			tags_backup = json::parse(fin_backup);
+		}
+		catch (json::parse_error & e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::ofstream fout_backup("backup.json");
+
 	std::string cmd;
 	std::vector<std::string> files;
 	//Path to all flacs
 	std::string path = "./music/";
-	do {
-		std::cout << "> ";
-		std::getline(std::cin, cmd);
-		std::vector<std::string> cmd_parsed(strToVec(cmd));
 
-		try {
-			if (cmd_parsed[0] == "init") {
-				if (cmd_parsed[1] == "tags") {
-					files.clear();
-					
-					for (const auto& entry : std::filesystem::directory_iterator(path)) {
-						files.push_back(entry.path().u8string());
-					}
-				}
-				else {
-					throw std::invalid_argument("No such option.");
-				}
-			}
-		}
-		catch (const std::invalid_argument& e) {
-			std::cerr << "Invalid argument: " << e.what() << std::endl;
-		}
-		
+	//Walk in path and add all files to files
+	for (const auto& entry : std::filesystem::directory_iterator(path)) {
+		files.push_back(entry.path().u8string());
+	}
 
-	} while (cmd != "exit");
-
+	//Add only taggable (i.e. music) files to fileList
 	TagLib::List<TagLib::FileRef> fileList;
 	for (auto filepath : files) {
 		TagLib::FileRef f(filepath.c_str());
@@ -122,10 +118,41 @@ int main(int argc, char** argv) {
 			std::cout << "File ignored: " << filepath << std::endl;
 		}
 	}
+
+	//Init flacs
 	TagLib::List<TagLib::FileRef>::ConstIterator it;
 	for (it = fileList.begin(); it != fileList.end(); it++) {
+		//Backup and delete old tags
+		json fileTags;
 		TagLib::PropertyMap map = (*it).file()->properties();
+		for (auto it2 = map.begin(); it2 != map.end(); it2++) {
+			std::wstring key = it2->first.toWString();
+			for (auto it3 = it2->second.begin(); it3 != it2->second.end(); it3++) {
+				std::wstring val = it3->toWString();
+				fileTags[std::string(key.begin(), key.end())] = std::string(val.begin(), val.end());
+			}
+		}
+		(*it).file()->setProperties(TagLib::PropertyMap());
+		(*it).file()->save();
+
+		//Generate hash
+		picosha2::hash256_one_by_one hasher;
+		std::vector<unsigned char> hash(picosha2::k_digest_size);
+		std::ifstream f(std::wstring((*it).file()->name()), std::ios::binary);
+		picosha2::hash256(f, hash.begin(), hash.end());
+		std::string hash_str = picosha2::bytes_to_hex_string(hash.begin(), hash.end());
+		std::cout << hash_str << std::endl;
+
+		tags_backup[hash_str] = fileTags;
+
+		//Add hash as flac tag
+		TagLib::PropertyMap map_hash;
+		map_hash.insert("sha256", TagLib::String(hash_str));
+		(*it).file()->setProperties(map_hash);
+		(*it).file()->save();
 	}
+
+	fout_backup << std::setw(4) << tags_backup << std::endl;
 
 	for (auto file : files) {
 		TagLib::FileRef musicin(file.c_str());
