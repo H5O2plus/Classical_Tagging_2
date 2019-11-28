@@ -18,6 +18,8 @@
 #include <nlohmann/json.hpp>
 #include <picosha2.h>
 
+#define READ_BUFFER_SIZE 16777216
+
 using json = nlohmann::json;
 
 std::ostream& operator<<(std::ostream& os, TagLib::PropertyMap prop) {
@@ -92,6 +94,7 @@ int main(int argc, char** argv) {
 			tags_backup = json::parse(fin_backup);
 		}
 		catch (json::parse_error & e) {
+			std::cerr << "JSON parsing backup.json error: ";
 			std::cerr << e.what() << std::endl;
 		}
 	}
@@ -138,6 +141,10 @@ int main(int argc, char** argv) {
 		//Generate hash
 		picosha2::hash256_one_by_one hasher;
 		std::vector<unsigned char> hash(picosha2::k_digest_size);
+		//std::ifstream f;
+		//std::vector<char> buffer(READ_BUFFER_SIZE);
+		//f.rdbuf()->pubsetbuf(&buffer[0], READ_BUFFER_SIZE);
+		//f.open(std::wstring((*it).file()->name()), std::ios::binary);
 		std::ifstream f(std::wstring((*it).file()->name()), std::ios::binary);
 		picosha2::hash256(f, hash.begin(), hash.end());
 		std::string hash_str = picosha2::bytes_to_hex_string(hash.begin(), hash.end());
@@ -154,6 +161,7 @@ int main(int argc, char** argv) {
 
 	fout_backup << std::setw(4) << tags_backup << std::endl;
 
+	/*
 	for (auto file : files) {
 		TagLib::FileRef musicin(file.c_str());
 		std::cout << "original tags: " << musicin.tag()->properties() << std::endl;
@@ -179,7 +187,7 @@ int main(int argc, char** argv) {
 	std::string query;
 
 	std::getline(std::cin, query);
-
+	*/
 	/*
 	std::vector<std::string> composers;
 	for (auto it = music_data["works"].begin(); it != music_data["works"].end(); it++) {
